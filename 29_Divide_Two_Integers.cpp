@@ -1,13 +1,15 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
+        // corner case 
+        // -2147483648 / -1
         if(divisor == 0 || (dividend == INT_MIN && divisor == -1))
             return INT_MAX;
         
         if(dividend == 0)
             return 0;
         
-        
+        // use longlong to avoid overflow 
         long long a = labs(dividend);
         long long b = labs(divisor);
         
